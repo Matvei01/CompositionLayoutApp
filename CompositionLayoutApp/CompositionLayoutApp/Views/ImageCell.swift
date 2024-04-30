@@ -13,11 +13,8 @@ final class ImageCell: UICollectionViewCell, CellProtocol {
     
     // MARK: - UI Elements
     private lazy var imageView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
         return $0
-    }(UIImageView())
+    }(ReuseImageView())
     
     // MARK: - Initializer
     override init(frame: CGRect) {

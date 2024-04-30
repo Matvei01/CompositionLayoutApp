@@ -7,33 +7,37 @@
 
 import UIKit
 
+// MARK: - MainViewController
 final class MainViewController: UIViewController {
     
+    // MARK: - Private Properties
     private let collectionData = CollectionSection.mockData()
     
+    // MARK: - UI Elements
     private lazy var mainCollectionView: UICollectionView = {
         $0.dataSource = self
-        $0.register(StoryCell.self, forCellWithReuseIdentifier: StoryCell.reuseID)
-        $0.register(MassageCell.self, forCellWithReuseIdentifier: MassageCell.reuseID)
-        $0.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseID)
-        $0.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseID)
+        $0.registerCells()
         $0.showsVerticalScrollIndicator = false
         return $0
     }(UICollectionView(frame: view.frame, collectionViewLayout: createLayout()))
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(mainCollectionView)
     }
-    
+}
+
+// MARK: - Private Methods
+private extension MainViewController {
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { section, _ in
+        UICollectionViewCompositionalLayout { [weak self] section, _ in
             switch section {
-            case 0: self.createStorySection()
-            case 1: self.createMassageSection()
-            case 2: self.createBannerSection()
-            default: self.createImageSection()
+            case 0: self?.createStorySection()
+            case 1: self?.createMassageSection()
+            case 2: self?.createBannerSection()
+            default: self?.createImageSection()
             }
         }
     }
@@ -110,6 +114,38 @@ final class MainViewController: UIViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 30, bottom: 40, trailing: 30)
         return section
     }
+    
+    func configureCell(for collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
+        let item = collectionData[indexPath.section].items[indexPath.item]
+        let cellReuseIdentifier: String
+        
+        switch indexPath.section {
+        case 0:
+            cellReuseIdentifier = StoryCell.reuseID
+        case 1:
+            cellReuseIdentifier = MassageCell.reuseID
+        case 2:
+            cellReuseIdentifier = BannerCell.reuseID
+        default:
+            cellReuseIdentifier = ImageCell.reuseID
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath)
+        guard let cell = cell as? CellProtocol else { return UICollectionViewCell() }
+        
+        cell.configure(with: item)
+        return cell as? UICollectionViewCell ?? UICollectionViewCell()
+    }
+}
+
+// MARK: - UICollectionView Cell Registration
+private extension UICollectionView {
+    func registerCells() {
+        register(StoryCell.self, forCellWithReuseIdentifier: StoryCell.reuseID)
+        register(MassageCell.self, forCellWithReuseIdentifier: MassageCell.reuseID)
+        register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseID)
+        register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseID)
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -122,30 +158,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = collectionData[indexPath.section].items[indexPath.item]
-        
-        switch indexPath.section {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCell.reuseID, for: indexPath)
-            guard let cell = cell as? StoryCell else { return UICollectionViewCell() }
-            cell.configure(with: item)
-            return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MassageCell.reuseID, for: indexPath)
-            guard let cell = cell as? MassageCell else { return UICollectionViewCell() }
-            cell.configure(with: item)
-            return cell
-        case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.reuseID, for: indexPath)
-            guard let cell = cell as? BannerCell else { return UICollectionViewCell() }
-            cell.configure(with: item)
-            return cell
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.reuseID, for: indexPath)
-            guard let cell = cell as? ImageCell else { return UICollectionViewCell() }
-            cell.configure(with: item)
-            return cell
-        }
+        configureCell(for: collectionView, at: indexPath)
     }
 }
 

@@ -11,6 +11,8 @@
 		1AB485282BE0F834001DCDC6 /* MassageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB485272BE0F834001DCDC6 /* MassageCell.swift */; };
 		1AB4852A2BE1448C001DCDC6 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB485292BE1448C001DCDC6 /* BannerCell.swift */; };
 		1AB4852C2BE16188001DCDC6 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4852B2BE16188001DCDC6 /* ImageCell.swift */; };
+		1AB485382BE19A8B001DCDC6 /* ReuseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB485362BE19A8B001DCDC6 /* ReuseLabel.swift */; };
+		1AB485392BE19A8B001DCDC6 /* ReuseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB485372BE19A8B001DCDC6 /* ReuseImageView.swift */; };
 		1ABA70632BE025B900C4EE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA70622BE025B900C4EE36 /* AppDelegate.swift */; };
 		1ABA70652BE025B900C4EE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA70642BE025B900C4EE36 /* SceneDelegate.swift */; };
 		1ABA70672BE025B900C4EE36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA70662BE025B900C4EE36 /* MainViewController.swift */; };
@@ -25,6 +27,8 @@
 		1AB485272BE0F834001DCDC6 /* MassageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassageCell.swift; sourceTree = "<group>"; };
 		1AB485292BE1448C001DCDC6 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		1AB4852B2BE16188001DCDC6 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		1AB485362BE19A8B001DCDC6 /* ReuseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseLabel.swift; sourceTree = "<group>"; };
+		1AB485372BE19A8B001DCDC6 /* ReuseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseImageView.swift; sourceTree = "<group>"; };
 		1ABA705F2BE025B900C4EE36 /* CompositionLayoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionLayoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABA70622BE025B900C4EE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABA70642BE025B900C4EE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1AB485352BE19A8B001DCDC6 /* ReuseViews */ = {
+			isa = PBXGroup;
+			children = (
+				1AB485362BE19A8B001DCDC6 /* ReuseLabel.swift */,
+				1AB485372BE19A8B001DCDC6 /* ReuseImageView.swift */,
+			);
+			path = ReuseViews;
+			sourceTree = "<group>";
+		};
 		1ABA70562BE025B900C4EE36 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +90,7 @@
 		1ABA70612BE025B900C4EE36 /* CompositionLayoutApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AB485352BE19A8B001DCDC6 /* ReuseViews */,
 				1AB485242BE0F7F7001DCDC6 /* Views */,
 				1ABA707A2BE0273000C4EE36 /* Models */,
 				1ABA70772BE026F300C4EE36 /* ViewControllers */,
@@ -200,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB485392BE19A8B001DCDC6 /* ReuseImageView.swift in Sources */,
 				1ABA707E2BE0354600C4EE36 /* CollectionItem.swift in Sources */,
 				1AB4852A2BE1448C001DCDC6 /* BannerCell.swift in Sources */,
 				1AB4852C2BE16188001DCDC6 /* ImageCell.swift in Sources */,
@@ -207,6 +222,7 @@
 				1ABA70632BE025B900C4EE36 /* AppDelegate.swift in Sources */,
 				1ABA70652BE025B900C4EE36 /* SceneDelegate.swift in Sources */,
 				1ABA707C2BE0348200C4EE36 /* CollectionSection.swift in Sources */,
+				1AB485382BE19A8B001DCDC6 /* ReuseLabel.swift in Sources */,
 				1AB485282BE0F834001DCDC6 /* MassageCell.swift in Sources */,
 				1AB485262BE0F819001DCDC6 /* StoryCell.swift in Sources */,
 			);

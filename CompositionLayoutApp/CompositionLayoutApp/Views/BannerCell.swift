@@ -7,32 +7,23 @@
 
 import UIKit
 
+// MARK: - BannerCell
 final class BannerCell: UICollectionViewCell, CellProtocol {
     static var reuseID: String = "BannerCell"
     
     // MARK: - UI Elements
     private lazy var imageView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
         return $0
-    }(UIImageView())
+    }(ReuseImageView())
     
     private lazy var headerLabel: UILabel = {
-        $0.font = .systemFont(ofSize: 24, weight: .black)
-        $0.textColor = .white
-        $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UILabel())
-    
+    }(ReuseLabel(font: .systemFont(ofSize: 24, weight: .black), textColor: .white))
+        
     private lazy var descriptionLabel: UILabel = {
-        $0.font = .systemFont(ofSize: 14, weight: .medium)
-        $0.textColor = .white
-        $0.numberOfLines = 0
-        $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UILabel())
-    
+    }(ReuseLabel(font: .systemFont(ofSize: 14, weight: .medium), textColor: .white))
+        
     // MARK: - Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)

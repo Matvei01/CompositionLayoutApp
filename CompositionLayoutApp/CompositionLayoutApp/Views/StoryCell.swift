@@ -19,18 +19,12 @@ final class StoryCell: UICollectionViewCell, CellProtocol {
     
     // MARK: - UI Elements
     private lazy var imageView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
-        $0.layer.cornerRadius = 40
         return $0
-    }(UIImageView())
+    }(ReuseImageView(radius: 40))
     
     private lazy var nameLabel: UILabel = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textAlignment = .center
         return $0
-    }(UILabel())
+    }(ReuseLabel(font: .systemFont(ofSize: 16, weight: .medium), alignment: .center))
     
     // MARK: - Initializer
     override init(frame: CGRect) {

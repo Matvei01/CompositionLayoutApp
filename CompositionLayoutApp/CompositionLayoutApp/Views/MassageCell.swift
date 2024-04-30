@@ -7,22 +7,18 @@
 
 import UIKit
 
+// MARK: - MassageCell
 final class MassageCell: UICollectionViewCell, CellProtocol {
     static var reuseID: String = "MassageCell"
     
+    // MARK: - UI Elements
     private lazy var imageView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
-        $0.layer.cornerRadius = 20
         return $0
-    }(UIImageView())
+    }(ReuseImageView(radius: 20))
     
     private lazy var textLabel: UILabel = {
-        $0.numberOfLines = 0
-        $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UILabel())
+    }(ReuseLabel(font: .systemFont(ofSize: 14, weight: .medium)))
     
     // MARK: - Initializer
     override init(frame: CGRect) {
@@ -45,7 +41,7 @@ final class MassageCell: UICollectionViewCell, CellProtocol {
 // MARK: - Private methods
 private extension MassageCell {
     func setupView() {
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = .appGray
         clipsToBounds = true
         layer.cornerRadius = 10
         
