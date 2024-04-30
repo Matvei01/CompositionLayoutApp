@@ -27,26 +27,26 @@ struct CollectionSection: Identifiable {
             CollectionItem(image: "Massage4", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit")
         ]
         
-        let newsItems = [
-            CollectionItem(image: "News1", header: "Заголовок1", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"),
-            CollectionItem(image: "News2", header: "Заголовок2", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"),
-            CollectionItem(image: "News3", header: "Заголовок3", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"),
-            CollectionItem(image: "News4", header: "Заголовок4", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit")
+        let bannerItems = [
+            CollectionItem(image: "Banner1", header: "Заголовок1", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"),
+            CollectionItem(image: "Banner2", header: "Заголовок2", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"),
+            CollectionItem(image: "Banner3", header: "Заголовок3", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"),
+            CollectionItem(image: "Banner4", header: "Заголовок4", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit")
         ]
         
-        let bannerItems = [
-            CollectionItem(image: "Banner1"),
-            CollectionItem(image: "Banner2"),
-            CollectionItem(image: "Banner3"),
-            CollectionItem(image: "Banner4")
+        let imageItems = [
+            CollectionItem(image: "Image1"),
+            CollectionItem(image: "Image2"),
+            CollectionItem(image: "Image3"),
+            CollectionItem(image: "Image4")
         ]
         
         let storiesSection = CollectionSection(header: "Stories", items: storiesItems)
         let massageSection = CollectionSection(header: "Massages", items: massageItems)
-        let newsSection = CollectionSection(header: "News", items: newsItems)
-        let bannerSection = CollectionSection(header: "Banner", items: bannerItems)
+        let bannerSection = CollectionSection(header: "News", items: bannerItems)
+        let imageSection = CollectionSection(header: "Banner", items: imageItems)
         
-        return [storiesSection, massageSection, newsSection, bannerSection]
+        return [storiesSection, massageSection, bannerSection, imageSection]
     }
 }
 
